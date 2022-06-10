@@ -26,7 +26,7 @@ class Globals:
             "Play", "Scoreboard", "EXIT"
         ]
 
-        self.directions_list = list()
+        self.directions_list = []
         self.__gen_directions()
 
 
@@ -153,10 +153,7 @@ class Play(Globals):
         )
 
         # Reseta a pontuação.
-        self.score = [
-            str( datetime.today() ),   # -> Data do começo da partida
-            0                          # -> Pontuação da partida
-        ]
+        self.score = [str(datetime.now()), 0]
 
         # Carrega os elementos e inicia o jogo.
         self.__load_content(screen)
@@ -248,12 +245,8 @@ class Play(Globals):
         ):
             self.__current_direction = new_direction
 
-        # Se a tecla for "return" ele troca os valores de self.__pause...
         elif new_direction == "return":
-            if self.__pause:
-                self.__pause = False
-            else:
-                self.__pause = True
+            self.__pause = not self.__pause
 
 
     # Desenha uma nova cabeça na frente da cobra, com base na direção atual.
@@ -324,7 +317,7 @@ class ScoreBoard(Globals):
 
     def __init__(self):
         super().__init__()
-        self.__score_list = list()
+        self.__score_list = []
         # self.__score_list = [["lafjkdslfjadslf", 123], ["lafjkdslfjadslf", 123], ["lafjkdslfjadslf", 123]]
         self.__y_value = 3
         self.__x_value = 7
