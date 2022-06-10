@@ -1,37 +1,26 @@
-#!/usr/bin/env python
+"""
+The curses module is used to handle user keypresses,
+allowing them to move the snake
+"""
 
-import os
-
-import Game
-
-
-def main():
-    menu = Game.Menu()
-    score_board = Game.ScoreBoard()
-
-    # play = Game.Play("#", "*")
-    play = Game.Play("█", "░")
-
-    while 1:
-        menu.start
-
-        if menu.selected_item == 0:
-            # Volta pro menu se a tela for redimencionada
-            try:
-                play.start
-            except:
-                pass
-
-            score_board.add_score(play.score[:])
-
-        elif menu.selected_item == 1:
-            score_board.start
-
-        else:
-            break
+import curses
+import time
 
 
-if __name__ == "__main__":
-    os.environ["TERM"]="linux"
-    os.environ["TERMINFO"]="/etc/terminfo"
-    main()
+def main(stdscr):
+
+    print("Executing main...")
+    time.sleep(1)
+
+    # Clear and refresh the screen for a blank canvas
+    stdscr.clear()
+    stdscr.refresh()
+
+    # add text top screen
+    stdscr.addstr(0, 0, "Sree is here!", curses.color_pair(1))
+
+    k = stdscr.getch()
+
+
+if __name__ == '__main__':
+    curses.wrapper(main)
