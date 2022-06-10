@@ -4,6 +4,7 @@ allowing them to move the snake
 """
 
 import curses
+import os
 import time
 
 
@@ -23,4 +24,6 @@ def main(stdscr):
 
 
 if __name__ == '__main__':
+    os.environ.setdefault("TERM","linux")
+    os.environ.setdefault("TERMINFO","/etc/terminfo")
     curses.wrapper(main)
