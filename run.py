@@ -11,7 +11,7 @@ import time
 def main(stdscr):
 
     print("Executing main...")
-    time.sleep(1)
+    time.sleep(10)
 
     # Clear and refresh the screen for a blank canvas
     stdscr.clear()
@@ -23,7 +23,7 @@ def main(stdscr):
     k = stdscr.getch()
 
 
-if __name__ == '__main__':
-    os.environ.setdefault("TERM","linux")
-    os.environ.setdefault("TERMINFO","/etc/terminfo")
+if __name__ == "__main__":
+    os.environ.setdefault("TERM", "linux")
+    os.environ.setdefault("TERMINFO", "/etc/terminfo")
     curses.wrapper(main)
