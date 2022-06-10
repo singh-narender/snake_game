@@ -1,2 +1,10 @@
 src/__pycache__/
 editor.vim
+__pycache__/Game.cpython-37.pyc
+core.Microsoft*
+core.mongo*
+core.python*
+env.py
+__pycache__/
+*.py[cod]
+creds.json
