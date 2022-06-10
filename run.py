@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import os
+
 import Game
 
 
@@ -30,7 +32,6 @@ def main():
 
 
 if __name__ == "__main__":
+    os.environ["TERM"]="linux"
+    os.environ["TERMINFO"]="/etc/terminfo"
     main()
-
-
-
